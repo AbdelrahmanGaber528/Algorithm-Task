@@ -1,0 +1,61 @@
+Maximum Product of Three Numbers 
+1-Brute Force Approach
+Problem Statement
+Given an integer array nums, find three numbers whose product is maximum and return the product.
+Brute Force (Naive) Approach
+Time Complexity: O(n³)
+Space Complexity: O(1)
+Pseudo Code
+
+FUNCTION maximumProduct(nums):
+
+    n = LENGTH(nums)
+
+    max_product = -INFINITY
+    
+    FOR i FROM 0 TO n-3:
+
+        FOR j FROM i+1 TO n-2:
+
+            FOR k FROM j+1 TO n-1:
+
+                current_product = nums[i] * nums[j] * nums[k]
+
+                IF current_product > max_product:
+
+                    max_product = current_product
+
+                    
+    RETURN max_product
+
+Explanation
+
+1-Input:
+	A list of numbers: nums
+n stores the number of elements in the list.
+max_product is initialized to a very small number so that any real product will be larger.
+	
+2-Triple Nested Loop: Checks all possible triplets (i, j, k) 		where i < j < k.
+
+3-Track Maximum Product:
+These loops generate all unique combinations of three different indices in the array.
+i < j < k ensures that no index is repeated and that the same triplet in different orders is not considered again.
+-current_product = nums[i] * nums[j] * nums[k]
+--If the current product is greater than the maximum found so far, update max_product 
+
+4- Result : The largest product after all iterations.
+	--RETURN max_product.
+
+
+
+
+
+Complexity Analysis
+    • Time: O(n³) → Evaluates all combinations (slow for large arrays).
+    • Space: O(1) → Uses only constant extra space.
+Example
+For nums = [1, 2, 3, 4]:
+    • Checks (1,2,3)=6, (1,2,4)=8, (1,3,4)=12, (2,3,4)=24 → Returns 24.
+Limitation
+Inefficient for large n (e.g., 1000 elements → ~166M operations).
+
