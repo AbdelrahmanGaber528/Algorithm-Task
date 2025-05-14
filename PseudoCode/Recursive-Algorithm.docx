@@ -1,30 +1,9 @@
+Recursive Structure:
+At each recursive step, we can either include or exclude an element. So, for each element, we have two choices (to include or exclude).
 
-            return;
-        }
-
-        // Base case: If all elements have been processed, return
-        if index = n
-        {
-            return;
-        }
-
-        // Case 1: Include the current element in the product
-        CalculateProduct(index + 1, count + 1, currentProduct * A[index]);
-
-        // Case 2: Exclude the current element and move to the next
-        CalculateProduct(index + 1, count, currentProduct);
-    }
-
-    // Start the recursive function with index 0, count 0, and currentProduct 1
-    Call CalculateProduct(0, 0, 1);
-
-    // Return the maximum product found
-    return maxProduct;
-}
-
+The recursive process will explore all possible combinations of selecting elements, but we stop when count == 3 (i.e., when 3 elements are selected) or when index == n (i.e., we've considered all elements).
 
 Number of Recursive Calls:
-
 The function explores all subsets of elements of size 3 from the array of size n.
 
 This is equivalent to generating all possible combinations of 3 elements from the array, which can be done in C(n, 3) ways, where:
@@ -32,30 +11,18 @@ C(n, 3) = n(n-1)(n-2)/6
 
 This results in O(n³) combinations.
 
-
 Time Complexity:
-
-
 Each recursive call involves a constant amount of work (basic arithmetic and comparison).
 
 The number of recursive calls is proportional to C(n, 3), which is O(n³).
 
 Thus, the time complexity of the algorithm is O(n³).
 
-
-
-
-
-
 Space Complexity:
-
 The space complexity is driven by the recursive call stack. In the worst case, the depth of recursion will be n, as we could potentially visit each element once.
 
 Therefore, the space complexity is O(n) due to the call stack.
 
-
 Conclusion:
-
 Time complexity: O(n³)
 Space complexity: O(n)
-
